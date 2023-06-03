@@ -27,12 +27,19 @@ foreach(var i in  departments)
 #endregion
 var productsRepo= new DapperProductRepository(conn);
 var products=productsRepo.GetAllProducts();
+productsRepo.DeleteProduct(941);
+productsRepo.DeleteProduct(942);
+productsRepo.DeleteProduct(943);
+productsRepo.DeleteProduct(944);
+productsRepo.DeleteProduct(945);
+/*
 var productToUpdate= productsRepo.GetProduct(940);
 productToUpdate.Name = "UPDATED PRODUCT";
 productToUpdate.Price = 99.99;
 productToUpdate.OnSale = false;
 productToUpdate.StockLevel = 55;
-foreach(var product in products)
+*/
+foreach (var product in products)
 {
     Console.WriteLine("Name of product:");
     Console.WriteLine(product.Name);

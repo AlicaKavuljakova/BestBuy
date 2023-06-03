@@ -15,6 +15,14 @@ namespace BestBuy
         {
             _connection = conn;
         }
+
+        public void DeleteProduct(int id)
+        {
+            _connection.Execute("Delete from sales where ProductID =@id ", new { id });
+            _connection.Execute("Delete from reviews where ProductID =@id ", new { id });
+            _connection.Execute("Delete from products where ProductID =@id ", new { id });
+        }
+
         public IEnumerable<Product> GetAllProducts()
         {
             return _connection.Query<Product>("Select * from Products");
